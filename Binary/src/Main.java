@@ -1,45 +1,39 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имя пользователя:");
-        String name = scanner.nextLine();
-        PersonAccount user = new PersonAccount(name);
 
-        System.out.println("Хотите открыть счёт в RUB?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        int command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyRUB = 0.0;
+
+        String pixelKcalDay = "43"; // столько калорий съел Пиксель до похода к бабушке
+        String beefKcal = "30.2"; // калорийность говядины
+        String chickenKcal = "23.8"; // калорийность курицы
+        String creamKcal = "32.1"; // калорийность сливок
+        String milkKcal = "13.5"; // калорийность молока
+
+        float pixelChoice = getMinKcalsSum(beefKcal, chickenKcal, creamKcal, milkKcal);
+        float totalKcal = Integer.parseInt(pixelKcalDay) + pixelChoice;
+        checkKcal(totalKcal);
+    }
+
+    private static Float getMinKcalsSum(String firstDishKcal, String secondDishKcal, String firstDesert, String secondDesert) {
+        float minDishKcal = Float.min(Float.parseFloat(firstDishKcal),Float.parseFloat(secondDishKcal)); // вычислите минимальную калорийность основного блюда
+        float minDesertKcal = Float.min(Float.parseFloat(firstDesert),Float.parseFloat(secondDesert)); // вычислите минимальную калорийность десерта
+        return minDishKcal + minDesertKcal;
+    }
+
+    private static void checkKcal(Float catKcal) {
+        if (catKcal == null) {
+            System.out.println("Что-то пошло не так");
+        }
+        else {
+            System.out.println("Калорийность рациона Пикселя за день: " + catKcal);
+            if (catKcal > 100) {
+                System.out.println("Пиксель сегодня не уложился в норму.");
+            } else {
+                System.out.println("Лимит не превышен!");
+            }
         }
 
-        System.out.println("Хотите открыть счёт в USD?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyUSD = 0.0;
-        }
 
-        System.out.println("Хотите открыть счёт в EUR?");
-        System.out.println("1 - Да");
-        System.out.println("2 - Нет");
-        command = scanner.nextInt();
-        if (command == 1) {
-            user.moneyEUR = 0.0;
-        }
 
-        System.out.println("Поздравляем, аккаунт для пользователя " + user.name + " создан.");
-        System.out.println("Открытые счета:");
-        if (user.moneyRUB != null) {
-            System.out.println("- RUB");
-        }
-        if (user.moneyUSD != null) {
-            System.out.println("- USD");
-        }
-        if (user.moneyEUR != null) {
-            System.out.println("- EUR");
-        }
     }
 }
