@@ -2,20 +2,27 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> speeds = new ArrayList<>(); // объявите список
-        speeds.add(120);
-        speeds.add(75);
-        speeds.add(42);
-        speeds.add(60);
-        speeds.add(110);
-        speeds.add(20);
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("Шиншилла");
+        animals.add("Крокодил");
+        animals.add("Лев");
+        animals.add("Медведь");
+        animals.add("Слон");
 
-        int sum = 0;
-        for (int speed : speeds) {
-            sum += speed;  // сложите все значения в списке
-        }
 
-        int averageSpeed = sum/speeds.size(); // вычислите среднюю скорость
-        System.out.println("Средняя скорость равна " + averageSpeed + " км/ч");
+        System.out.println("Сегодня в зоопарке можно увидеть кормления " + animals.size() + " животных.");
+
+        System.out.println("Это будут:");
+        for (String animal : animals)
+            System.out.println(animal);
+
+        System.out.println("Рассписание кормлений");
+        //крокодил, слон, шиншилла, лев, медведь.
+
+        System.out.println("В 9:00 - " + animals.get(1));
+        System.out.println("В 10:00 - "+ animals.get(4));
+        System.out.println("В 11:00 - " + animals.get(0));
+        System.out.println("В 12:00 - " + animals.get(2));
+        System.out.println("В 13:00 - " + animals.get(3));
     }
 }
