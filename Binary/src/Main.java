@@ -3,19 +3,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
-        HashMap<String, Double> orders = new HashMap<>();
-        orders.put("Иван И.", 4345.5);
-        orders.put("Ольга С.", 76564.43);
-        orders.put("Александр Т.", 1234.86);
-        orders.put("Александр Р.", 23432.87);
-        orders.put("Екатерина О.", 1034753.6);
-        orders.put("Ярослав В.", 450.0);
+        HashMap<String, ArrayList<Integer> > holidays = new HashMap<>();
 
-        double result = 0.0; // объявите переменную, где будет сохранена общая сумма
-        for (double s: orders.values()) { // пройдитесь в цикле по значениям
-            result+=s;
-        }
+        ArrayList<Integer> dates = new ArrayList<>();
+        dates.add(1);
+        dates.add(7);
+        holidays.put("Январь",dates);
 
-        System.out.println("Всего было совершено заказов на сумму: " + result);
+        dates = new ArrayList<>();
+        dates.add(23);
+        holidays.put("Февраль",dates);
+
+        dates = new ArrayList<>();
+        dates.add(8);
+        holidays.put("Март",dates);
+
+        dates = new ArrayList<>();
+        dates.add(1);
+        dates.add(9);
+        holidays.put("Май",dates);
+
+        dates = new ArrayList<>();
+        dates.add(12);
+        holidays.put("Июнь",dates);
+
+        dates = new ArrayList<>();
+        dates.add(4);
+        holidays.put("Ноябрь",dates);
+
+        System.out.println(holidays);
     }
 }
