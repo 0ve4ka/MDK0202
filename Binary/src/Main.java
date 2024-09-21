@@ -3,34 +3,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
-        HashMap<String, ArrayList<Integer> > holidays = new HashMap<>();
+        OrdersManager ordersManager = new OrdersManager();
 
-        ArrayList<Integer> dates = new ArrayList<>();
-        dates.add(1);
-        dates.add(7);
-        holidays.put("Январь",dates);
+        ordersManager.printAllOrders();
+        System.out.println("Всего заказов на сумму: " + ordersManager.getOrdersSum());
 
-        dates = new ArrayList<>();
-        dates.add(23);
-        holidays.put("Февраль",dates);
+        String maxOrderCustomerName = ordersManager.getMaxOrderCustomerName();
+        System.out.println("Самая большая сумма заказов у " + maxOrderCustomerName);
+        ordersManager.printCustomerOrders(maxOrderCustomerName);
 
-        dates = new ArrayList<>();
-        dates.add(8);
-        holidays.put("Март",dates);
+        ordersManager.removeUnprofitableOrders();
 
-        dates = new ArrayList<>();
-        dates.add(1);
-        dates.add(9);
-        holidays.put("Май",dates);
 
-        dates = new ArrayList<>();
-        dates.add(12);
-        holidays.put("Июнь",dates);
 
-        dates = new ArrayList<>();
-        dates.add(4);
-        holidays.put("Ноябрь",dates);
 
-        System.out.println(holidays);
-    }
+}
 }
